@@ -1,0 +1,11 @@
+<nav class="navbar navbar-dark bg-dark">
+  <img
+    class="user-icon"
+    [src]="'../../../../assets/user_icon.jpg'"
+    alt="user_icon"
+  />
+  <div class="user-name">{{ user?.username }}</div>
+  <button class="logout" (click)="logout()">
+    <i class="fas fa-power-off"></i>
+  </button>
+</nav>

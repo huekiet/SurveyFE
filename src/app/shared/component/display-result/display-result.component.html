@@ -1,0 +1,15 @@
+<div class="result">
+  <div class="score">
+    <div>Your answer: {{ correctAnswers }} / {{ totalQuestion }}</div>
+    <div>Your score: {{ score }} / 100</div>
+  </div>
+</div>
+
+<div class="text-center mt-3 toolbar">
+  <button class="btn btn-secondary mx-auto" (click)="reviewAnswer()">
+    Review your answer
+  </button>
+  <button class="btn btn-success mx-auto" (click)="retakeSurvey()">
+    Retake this survey
+  </button>
+</div>

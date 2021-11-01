@@ -1,0 +1,156 @@
+/* You can add global styles to this file, and also import other style files */
+
+.left-side-panel {
+  border-right: 2px solid rgb(85, 83, 83);
+}
+
+.left-side-panel .active {
+  border: 2.5px solid rgb(28, 107, 39) !important;
+}
+
+.right-side-panel {
+  padding: 30px;
+  position: relative;
+}
+
+.navbar {
+  height: 45px;
+}
+
+.user-content {
+  height: 90vh;
+}
+
+.user-content .left-side-panel .question-number {
+  background-color: rgb(192, 186, 186);
+  color: black;
+  float: left;
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+  border: 1px solid #ddd;
+}
+
+.user-content .left-side-panel .question-number.done {
+  background-color: rgb(192, 186, 186);
+}
+
+.user-content .left-side-panel .question-number.notdone {
+  background-color: rgb(236, 230, 230);
+}
+
+.user-content .left-side-panel .question-number.correct {
+  background-color: rgb(106, 218, 165);
+}
+
+.user-content .left-side-panel .question-number.incorrect {
+  background-color: rgb(235, 99, 99);
+}
+
+.user-content .left-side-panel .question-result {
+  background-color: rgb(121, 166, 224);
+  color: black;
+  float: left;
+  width: 70px;
+  height: 30px;
+  margin: 5px;
+  border: 1px solid #ddd;
+}
+
+.user-content .question-number:hover {
+  transform: translate(0%, -5%);
+}
+
+.user-content .question {
+  height: 350px;
+}
+
+.user-content .question-title {
+  font-weight: bold;
+}
+
+.user-content .question-answer {
+  margin: 10px 0;
+}
+
+.user-content .question-answer input[type="radio"] {
+  margin-right: 5px;
+}
+
+.user-content .right-side-panel .toolbar {
+  text-align: center;
+  padding: 20px;
+}
+
+.user-content .right-side-panel .toolbar .btn {
+  width: 170px;
+}
+
+.right-side-panel .result {
+  margin: auto;
+  text-align: center;
+  background-image: url(/assets/result_background.bmp);
+  background-repeat: no-repeat;
+  width: 350px;
+  height: 250px;
+  background-size: 100% 100%;
+  position: relative;
+  animation: fade-in 1s;
+  /* transform: translate(-30px, 20px); */
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.right-side-panel .result .score {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.right-side-panel .bar {
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  font-weight: bold;
+}
+
+.right-side-panel .incorrect-bar.bar {
+  background-color: rgb(235, 99, 99);
+}
+
+.right-side-panel .correct-bar.bar {
+  background-color: rgb(106, 218, 165);
+}
+
+.form-control {
+  border-radius: 0 !important;
+}
+
+.form-control:focus {
+  box-shadow: none !important;
+  border-color: #333;
+}
+
+.btn {
+  border-radius: 0 !important;
+}
+
+.validate-error {
+  color: red;
+  font-size: 13px;
+  font-style: italic;
+}
+
+.input-auth {
+  margin: 10px 0;
+}

@@ -1,0 +1,132 @@
+<div class="user-content">
+  <div class="row h-100 m-0">
+    <div class="col-3 left-side-panel">
+      <div *ngFor="let question of questionList; let index = index">
+        <button
+          [ngClass]="getStatusOfAnswer(index)"
+          class="question-number"
+          (click)="switchQuestion(index)"
+        >
+          {{ index + 1 }}
+        </button>
+      </div>
+
+      <div *ngIf="submitted">
+        <button
+          [ngClass]="showResult ? 'active' : ''"
+          class="question-result"
+          (click)="displayResult()"
+        >
+          Result
+        </button>
+      </div>
+    </div>
+
+    <div class="col-9 right-side-panel">
+      <div *ngIf="submitted && showResult">
+        <app-display-result
+          [totalQuestion]="questionList.length"
+          [correctAnswers]="numberOfCorrectAnswers"
+          (reviewClick)="switchQuestion(0)"
+        ></app-display-result>
+      </div>
+
+      <div
+        *ngIf="getStatusOfAnswer(currentQuestionIndex).correct && !showResult"
+      >
+        <div class="correct-bar bar">Correct</div>
+      </div>
+      <div
+        *ngIf="getStatusOfAnswer(currentQuestionIndex).incorrect && !showResult"
+      >
+        <div class="incorrect-bar bar">Incorrect</div>
+      </div>
+
+      <div *ngIf="!showResult" class="question">
+        <div class="question-title">
+          {{ currentQuestionIndex + 1 }}. {{ currentQuestion?.question }}
+        </div>
+        <div>Choose your answer:</div>
+
+        <div class="question-answer">
+          <input
+            type="radio"
+            name="yourAnswer"
+            [value]="currentQuestion?.answer1"
+            [id]="currentQuestion?.answer1"
+            [(ngModel)]="submittedAnswers[currentQuestion?._id]"
+            [disabled]="submitted"
+          />
+          <label [for]="currentQuestion?.answer1">
+            {{ currentQuestion?.answer1 }}</label
+          >
+        </div>
+
+        <div class="question-answer">
+          <input
+            type="radio"
+            name="yourAnswer"
+            [value]="currentQuestion?.answer2"
+            [id]="currentQuestion?.answer2"
+            [(ngModel)]="submittedAnswers[currentQuestion?._id]"
+            [disabled]="submitted"
+          />
+          <label [for]="currentQuestion?.answer2">
+            {{ currentQuestion?.answer2 }}</label
+          >
+        </div>
+
+        <div class="question-answer">
+          <input
+            type="radio"
+            name="yourAnswer"
+            [value]="currentQuestion?.answer3"
+            [id]="currentQuestion?.answer3"
+            [(ngModel)]="submittedAnswers[currentQuestion?._id]"
+            [disabled]="submitted"
+          />
+          <label [for]="currentQuestion?.answer3">
+            {{ currentQuestion?.answer3 }}</label
+          >
+        </div>
+
+        <div class="question-answer">
+          <input
+            type="radio"
+            name="yourAnswer"
+            [value]="currentQuestion?.answer4"
+            [id]="currentQuestion?.answer4"
+            [(ngModel)]="submittedAnswers[currentQuestion?._id]"
+            [disabled]="submitted"
+          />
+          <label [for]="currentQuestion?.answer4">
+            {{ currentQuestion?.answer4 }}</label
+          >
+        </div>
+      </div>
+
+      <div *ngIf="!showResult" class="toolbar">
+        <span *ngIf="!isFirstQuestion()">
+          <button class="btn btn-secondary" (click)="previousQuestion()">
+            Previous question
+          </button>
+        </span>
+        <span *ngIf="!isLastQuestion()">
+          <button class="btn btn-primary" (click)="nextQuestion()">
+            Next question
+          </button>
+        </span>
+        <span *ngIf="isLastQuestion() && !submitted">
+          <button class="btn btn-success" (click)="submitAnswer()">
+            Submit answer
+          </button>
+        </span>
+        <span *ngIf="isLastQuestion() && submitted">
+          <button class="btn btn-success" (click)="displayResult()">
+            Result
+          </button>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

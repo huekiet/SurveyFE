@@ -1,0 +1,14 @@
+.about-us {
+  height: 50px;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  padding: 10px 30px;
+  color: white;
+  text-align: center;
+  font-size: 18px;
+}
+
+.about-us .left-content {
+  color: white;
+}

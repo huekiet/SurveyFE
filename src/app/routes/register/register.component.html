@@ -1,0 +1,51 @@
+<div>
+  <div class="card card-container">
+    <h5 class="mx-auto">Sign up</h5>
+
+    <form class="form-authen" [formGroup]="registerForm" autocomplete="off">
+      <input
+        formControlName="userName"
+        class="form-control input-auth"
+        placeholder="Email address"
+        autofocus
+      />
+      <input
+        formControlName="password"
+        type="password"
+        class="form-control input-auth"
+        placeholder="Password"
+      />
+      <input
+        formControlName="confirmPassword"
+        type="password"
+        class="form-control input-auth"
+        placeholder="Confirm password"
+      />
+      <div
+        *ngIf="
+          registerForm.controls.confirmPassword.errors?.mustMatch &&
+          !registerForm.controls.confirmPassword.pristine
+        "
+        class="validate-error"
+      >
+        Password must match
+      </div>
+      <input
+        formControlName="email"
+        type="text"
+        class="form-control input-auth"
+        placeholder="Email"
+      />
+    </form>
+    <!-- /form -->
+
+    <button
+      [disabled]="registerForm.invalid"
+      class="btn btn-lg btn-dark"
+      (click)="register()"
+    >
+      Register
+    </button>
+    <a routerLink="/auth/login">Already have an account? Click here to login</a>
+  </div>
+</div>

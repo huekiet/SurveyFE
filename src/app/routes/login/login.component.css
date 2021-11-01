@@ -1,0 +1,10 @@
+.card-container.card {
+  max-width: 400px;
+  padding: 40px 40px;
+  margin: auto;
+}
+
+.card-container.card .profile-img-card {
+  width: 150px;
+  margin: auto;
+}

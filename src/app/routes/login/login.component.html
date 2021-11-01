@@ -1,0 +1,38 @@
+<div>
+  <div class="card card-container">
+    <img
+      id="profile-img"
+      class="profile-img-card"
+      src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+      alt="some img"
+    />
+    <p id="profile-name" class="profile-name-card"></p>
+    <h5 class="mx-auto">Sign in</h5>
+
+    <form class="form-authen" [formGroup]="loginForm">
+      <input
+        formControlName="userName"
+        class="form-control input-auth"
+        placeholder="Email address"
+        autofocus
+      />
+      <input
+        formControlName="password"
+        type="password"
+        class="form-control input-auth"
+        placeholder="Password"
+      />
+    </form>
+    <!-- /form -->
+
+    <button
+      [disabled]="loginForm.invalid"
+      class="btn btn-lg btn-dark"
+      (click)="login()"
+    >
+      Sign in
+    </button>
+
+    <a routerLink="/auth/register">Sign up for new account?</a>
+  </div>
+</div>
